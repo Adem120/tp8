@@ -15,11 +15,11 @@
                         <td>{{produit.prixProduit}}</td>
                         <td>{{produit.dateCreation | date:'dd/MM/yyyy'}}</td>
                         <td>
-                            <a (click)="supprimerProduit(produit)" class="btn btn-danger">
+                            <a *ngIf="authService.isAdmin()" (click)="supprimerProduit(produit)" class="btn btn-danger">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
-                        <td><a [routerLink]="['/updateProduit',produit.idProduit]" class="btn btn-warning"><i class="bi bi-tools"></i></a>
+                        <td><a *ngIf="authService.isAdmin()" [routerLink]="['/updateProduit',produit.idProduit]" class="btn btn-warning"><i class="bi bi-tools"></i></a>
                         </td>
                     </tr>
                 </tbody>
